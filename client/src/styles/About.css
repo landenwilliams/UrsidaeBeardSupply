@@ -1,0 +1,87 @@
+.about-section {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+/* ImagePlaceholder.css */
+
+.image-placeholder {
+  height: 300px;
+  width: 300px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  float: left;
+  margin-right: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.image-placeholder::before,
+.image-placeholder::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+}
+
+.image-placeholder::before {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+.image-placeholder::after {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+.image-placeholder .bottom-left,
+.image-placeholder .bottom-right {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #fff;
+}
+
+.image-placeholder .bottom-left {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+.image-placeholder .bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+.about-content {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  padding-left: 72px;
+  border: 0;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+  width: 100%;
+  padding-right: 20px;
+}
+
+.text-container {
+  max-width: 100%;
+}

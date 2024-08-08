@@ -1,0 +1,51 @@
+.side-nav {
+    position: fixed;
+    bottom: 110px; /* Maintain position of the icons */
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 1000;
+  }
+  
+  .auth-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 80px; /* Maintain space above icons */
+  }
+  
+  .auth-link {
+    color: white;
+    font-size: 22px !important; /* Responsive font size */
+    margin-bottom: -10px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transition: color 0.3s ease;
+    text-decoration: none; /* Ensure no underline */
+  }
+  
+  .auth-link:hover {
+    color: #E0BB20;
+  }
+  
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .icon {
+    color: white;
+    font-size: 40px; /* Icon size is 50x50 pixels */
+    transition: color 0.3s ease;
+    margin-bottom: -5px;
+    margin-top: -5px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+  }
+  
+  .icon:hover {
+    color: #E0BB20;
+  }
+  

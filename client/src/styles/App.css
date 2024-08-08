@@ -1,0 +1,112 @@
+/* App.css */
+.no-scrollbar {
+  overflow: hidden;
+}
+
+.app-container {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  position: relative;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+}
+
+.main-container {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  width: 100%;
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: black;
+  background-position: top right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scroll-snap-align: start;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  padding-left: 72px;
+  margin-top: 47px;
+  text-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  font-size: 6.67vw;
+  font-family: 'Inter', sans-serif; /* Ensure using Inter font */
+}
+
+.title.gold {
+  color: #E0BB20;
+  font-weight: 450; /* Medium weight of boldness */
+}
+
+.title.white {
+  color: white;
+  font-weight: 300; /* Thin */
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  margin-left: 72px;
+  margin-bottom: 47px;
+}
+
+.nav-link {
+  font-size: 36px;
+  font-weight: 300;
+  text-decoration: none;
+  color: white;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative; /* Add this to position the pseudo-element */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
+
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 6px; /* Adjust based on the text size */
+  height: 4px;
+  width: 100%;
+  background-color: #E0BB20; /* Underline color */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav-link:focus::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+  outline: none;
+  color: #E0BB20;
+}
