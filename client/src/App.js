@@ -12,6 +12,8 @@ import PageTransition from './components/PageTransition';
 import LoadSpinner from './components/LoadSpinner';
 import CartIcon from './components/CartIcon';
 import Cart from './components/Cart';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './functions/firebaseConfig';
 import './styles/App.css';
 
 const App = () => {
@@ -19,6 +21,7 @@ const App = () => {
   const [direction, setDirection] = useState(1);
   const [loading, setLoading] = useState(true);
   const [delayedLoading, setDelayedLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   document.body.classList.add('no-scrollbar');
 
@@ -58,6 +61,19 @@ const App = () => {
     }
   }, [loading]);
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
   const loaderVariants = {
     hidden: { scale: 1.5, opacity: 0 },
     visible: { scale: 1, opacity: 1, transition: { duration: 0.5, ease: "easeOut" } },
@@ -95,7 +111,7 @@ const App = () => {
       {!delayedLoading && (
         <div className="content">
           <SearchBar setDirection={setDirection} />
-          <SideNav setDirection={setDirection} />
+          <SideNav setDirection={setDirection} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
           <CartIcon setDirection={setDirection} />
           <AnimatePresence initial={true} custom={direction}>
             <Routes location={location} key={location.pathname}>
@@ -113,11 +129,11 @@ const App = () => {
               />
               <Route
                 path="/login"
-                element={<PageTransition direction={direction}><Login setDirection={setDirection} /></PageTransition>}
+                element={<PageTransition direction={direction}><Login setDirection={setDirection} setIsLoggedIn={setIsLoggedIn} /></PageTransition>}
               />
               <Route
                 path="/register"
-                element={<PageTransition direction={direction}><Register setDirection={setDirection} /></PageTransition>}
+                element={<PageTransition direction={direction}><Register setDirection={setDirection} setIsLoggedIn={setIsLoggedIn} /></PageTransition>}
               />
               <Route
                 path="/cart"
