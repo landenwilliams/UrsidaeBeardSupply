@@ -8,8 +8,8 @@
 /* ImagePlaceholder.css */
 
 .image-placeholder {
-  height: 300px;
-  width: 300px;
+  height: 400px;
+  width: 400px;
   background-color: #000;
   color: #fff;
   display: flex;
@@ -78,10 +78,16 @@
   padding-left: 72px;
   border: 0;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 1);
-  width: 100%;
+  width: 75%;
+  height: 65%;
+  max-height: 65%;
+  overflow-y: auto;
   padding-right: 20px;
+  scroll-snap-type: y mandatory;
 }
 
 .text-container {
   max-width: 100%;
+  scroll-snap-align: end;
+
 }
